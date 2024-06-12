@@ -3,8 +3,7 @@ import { markdown } from '@astropub/md'
 
 const {repo} = Astro.props;
 const response = await fetch(`${import.meta.env.GITEA_URL}${repo}/releases/latest?token=${import.meta.env.GITEA_TOKEN}`);
-const data = await response.json();
-const release = data;
+const release = await response.json();
 ---
 
 <!-- Data fetched at build can be rendered in HTML -->
