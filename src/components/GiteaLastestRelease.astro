@@ -1,15 +1,16 @@
 ---
-const response = await fetch('https://dev.lab/api/v1/repos/kryptos/test/releases/latest?token=a4cff11047341dc973f3c08cdb08e64b856c084c');
+const {repo} = Astro.props;
+const response = await fetch(`https://hq-dev-01.vstrading.co.uk/api/v1/repos/VST/${repo}/releases/latest?token=${import.meta.env.GITEA_TOKEN}`);
 const data = await response.json();
 const release = data;
 ---
 
 <!-- Data fetched at build can be rendered in HTML -->
-<h2>Test</h2>
+<h2>{repo}</h2>
 <p class="metadata">Created : {release.created_at} // Published : {release.published_at}</p>
-<h3>{release.name} {release.body}</h3>
 
-
+<h3>{release.name}</h3>
+<p>{release.body}</p>
 
 <style>
     .metadata{
