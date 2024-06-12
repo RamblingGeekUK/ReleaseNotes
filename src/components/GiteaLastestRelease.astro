@@ -1,4 +1,6 @@
 ---
+import { markdown } from '@astropub/md'
+
 const {repo} = Astro.props;
 const response = await fetch(`https://hq-dev-01.vstrading.co.uk/api/v1/repos/VST/${repo}/releases/latest?token=${import.meta.env.GITEA_TOKEN}`);
 const data = await response.json();
@@ -10,7 +12,7 @@ const release = data;
 <p class="metadata">Created : {release.created_at} // Published : {release.published_at}</p>
 
 <h3>{release.name}</h3>
-<p>{release.body}</p>
+{await markdown(`${release.body}`)}
 
 <style>
     .metadata{
