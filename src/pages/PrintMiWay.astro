@@ -6,28 +6,13 @@ import Releases from '../components/GiteaLastestRelease.astro'
 
 <Layout title="Releases">
 	<main>
-		<h1><span class="text-gradient">VST Applications</span></h1>
+		<h1><span class="text-gradient">PrintMiWay Release Notes</span></h1>
 		<!-- <p class="instructions">
 			Below is a list of the most recent updates to the in house software products.
 		</p> -->
-		<!-- <Releases repo="VST.BatchPrint"/> -->
+		<Releases repo="VST.BatchPrint"/>
 	</main>
-	<ul>
-		<li>
-			<Card title="Management Station" body="Description of Batch Print" href="ManagementStation">
-				<h2>Management System for batching and tracking.</h2>
-			</Card>
-		</li>
-
-		<li>
-			<Card title="PrintMiWay" body="Description of Batch Print" href="PrintMiWay">
-				<h2>Used to print batches in the print room</h2>
-			</Card>
-		</li>
-		
-	</ul>
 </Layout>
-
 
 <style>
 	main {
@@ -59,12 +44,12 @@ import Releases from '../components/GiteaLastestRelease.astro'
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		background-size: 200%;
+		background-size: 400%;
 		background-position: 0%;
 	}
 	.instructions {
 		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 15%);
+		border: 1px solid rgba(var(--accent-light), 25%);
 		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
 		padding: 1.5rem;
 		border-radius: 8px;
@@ -72,7 +57,7 @@ import Releases from '../components/GiteaLastestRelease.astro'
 	.instructions code {
 		font-size: 0.8em;
 		font-weight: bold;
-		background: rgba(var(--accent-light), 92%);
+		background: rgba(var(--accent-light), 12%);
 		color: rgb(var(--accent-light));
 		border-radius: 4px;
 		padding: 0.3em 0.4em;

@@ -1,0 +1,27 @@
+---
+import { markdown } from '@astropub/md'
+
+const {repo} = Astro.props;
+const response = await fetch(`${import.meta.env.GITEA_URL}${repo}/releases?limit=3&token=${import.meta.env.GITEA_TOKEN}`);
+const release = await response.json();
+---
+
+<!-- Data fetched at build can be rendered in HTML -->
+<h2>{repo}</h2>
+
+{release.map((release) => (
+    <div>
+        <p class="metadata">Created : {release.created_at} // Published : {release.published_at}</p>
+
+        <h3>{release.name}</h3>
+        {markdown(`${release.body}`)}
+    </div>
+))} 
+
+<style>
+    .metadata{
+        font-size: small;
+        line-height: 0%;
+    }
+</style>
+<pre>
